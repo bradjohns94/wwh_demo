@@ -11,7 +11,7 @@ RUN apt-get update && \
     apt-get clean
 
 # Add the JAR and a way to execute it
-COPY sbt/target/scala-2.12/sample.jar /usr/share/java/sample.jar
+COPY sbt/target/scala-2.11/sample.jar /usr/share/java/sample.jar
 COPY run-jar.sh /usr/local/bin/run-jar
 
 # Run the API

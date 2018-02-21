@@ -11,7 +11,7 @@ RUN apt-get update && \
     apt-get clean
 
 # Add the JAR and a way to execute it
-COPY sbt/target/scala-2.12/producer.jar /usr/share/java/producer.jar
+COPY sbt/target/scala-2.11/producer.jar /usr/share/java/producer.jar
 COPY run-producer.sh /usr/local/bin/run-producer
 
 # Run the API
