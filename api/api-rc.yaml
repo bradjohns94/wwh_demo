@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: api-controller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: demo-api
+      labels:
+        app: demo-api
+    spec:
+      containers:
+        - name: demo-api
+          image: demo-api:demo

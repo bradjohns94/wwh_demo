@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: producer-controller
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: demo-producer
+      labels:
+        app: demo-producer
+    spec:
+      containers:
+        - name: demo-producer
+          image: demo-producer:demo
