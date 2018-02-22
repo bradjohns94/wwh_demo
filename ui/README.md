@@ -15,11 +15,6 @@ $ yarn install
 2. Start the dev server
 ```
 $ yarn dev
-yarn run v1.3.2
-webpack-dev-server
-Project is running at http://localhost:8080/
-webpack output is served from /
-Content not from webpack is served from ./dist
 ```
 3. Build the bundle (optional)
 ```
