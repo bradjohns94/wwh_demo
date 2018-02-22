@@ -22,7 +22,8 @@ module.exports = {
             options: {
               presets: ['@babel/react', '@babel/preset-stage-1']
             }
-          }
+          },
+          'eslint-loader'
         ]
       }
     ]
