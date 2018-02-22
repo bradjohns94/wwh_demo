@@ -1,0 +1,29 @@
+{
+  "name": "demo-ui",
+  "version": "1.0.0",
+  "description": "A UI demo for WWH 2018",
+  "main": "src/index.jsx",
+  "author": "Max Dubrinsky",
+  "license": "MIT",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "dev": "webpack-dev-server"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "@babel/preset-stage-1": "^7.0.0-beta.40",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "8.0.0-beta.0",
+    "eslint": "^4.18.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-react": "^7.7.0",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}

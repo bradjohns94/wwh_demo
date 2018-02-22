@@ -1,4 +1,4 @@
-dist/*
+dist/
 target/
 lib_managed/
 src_managed/
@@ -8,3 +8,4 @@ project/plugins/project/
 .cache
 .lib/
 kubernetes-kafka/
+node_modules/
