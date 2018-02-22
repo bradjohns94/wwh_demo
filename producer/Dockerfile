@@ -16,3 +16,4 @@ COPY run-producer.sh /usr/local/bin/run-producer
 
 # Run the API
 CMD while [ 1 ]; do :; done
+#CMD run-producer

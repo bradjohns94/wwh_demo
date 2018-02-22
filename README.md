@@ -21,7 +21,7 @@ $ kubectl apply -f kubernetes-kafka/configure/minikube-storageclass-broker.yml
 $ kubectl apply -f kubernetes-kafka/configure/minikube-storageclass-zookeeper.yml
 $ kubectl apply -f kubernetes-kafka/zookeeper
 $ kubectl apply -f kubernetes-kafka/kafka
-$ kubectl exec --namespace=kafka kafka-0 -- bash -c "export JMX_PORT=9998; ./bin/kafka-topics.sh --create --topic alerts --zookeeper zookeeper.kafka.svc.cluster.local:2181 --partitions 1 --replication-factor 1"
+$ kubectl exec --namespace=kafka kafka-0 -- bash -c "export JMX_PORT=9998; ./bin/kafka-topics.sh --create --topic indicators --zookeeper zookeeper.kafka.svc.cluster.local:2181 --partitions 1 --replication-factor 1"
 ```
 4. Run the following commands to setup the API endpoint:
 ```

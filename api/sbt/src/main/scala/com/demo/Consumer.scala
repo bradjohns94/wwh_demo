@@ -11,10 +11,10 @@ class Consumer(topic: String) {
   props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
   props.put("group.id", "something")
 
-	val consumer = new KafkaConsumer[String, String](props)
+	val consumer = new KafkaConsumer[String, Int](props)
 	consumer.subscribe(util.Collections.singletonList(topic))
 
-	def poll(timeout: Int): Iterable[String] = {
-		consumer.poll(timeout).asScala.map{_.value()}
+	def poll(timeout: Int): Iterable[(String, Int)] = {
+		consumer.poll(timeout).asScala.map{ x => (x.key(), x.value()) }
 	}
 }

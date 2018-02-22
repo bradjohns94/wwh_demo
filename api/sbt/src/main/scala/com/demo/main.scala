@@ -1,50 +1,33 @@
 import akka.actor.Actor
+import akka.actor.ActorSystem
 import spray.routing._
 import spray.http._
 import spray.json._
+import spray.routing.SimpleRoutingApp
+import DefaultJsonProtocol._
 import MediaTypes._
 
-import akka.actor.ActorSystem
-import spray.routing.SimpleRoutingApp
+import scala.util.{Try, Success, Failure}
 
 object Main extends App with SimpleRoutingApp {
 	implicit val system = ActorSystem("wwh-demo")
+	val consumer = new Consumer("indicators")
 
 	startServer(interface = "localhost", port = 80) {
 		path("") {
 			get {
 				respondWithMediaType(`application/json`) {
 					complete {
-						getData.prettyPrint
+						poll.prettyPrint
 					}
 				}
 			}
 		}
 	}
 
-	def getData: JsValue = {
-		try {
-			JsObject(
-				"val" -> JsString("Success"),
-				"err" -> JsBoolean(false)
-			)
-		}
-		catch {
-				case e: Throwable => JsObject(
-					"val" -> JsString("Failure"),
-					"err" -> JsBoolean(true)
-				)
-		}
+	def poll: JsValue = {
+		consumer.poll(100).foldLeft(Map[String, Int]()) { (dict, pair) =>
+			dict + (pair._1 -> (pair._2 + dict.getOrElse(pair._1, 0)))
+		}.toJson
 	}
-
-	/*
-	def main(args: Array[String]): Unit = {
-		val consumer = new Consumer("test")
-		while (true) {
-			consumer.poll(100).foreach{msg =>
-				println(msg)
-			}
-		}
-	}
-	*/
 }

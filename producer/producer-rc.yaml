@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: producer-controller
 spec:
-  replicas: 1
+  replicas: 5
   template:
     metadata:
       name: demo-producer
@@ -13,3 +13,8 @@ spec:
       containers:
         - name: demo-producer
           image: demo-producer:demo
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
